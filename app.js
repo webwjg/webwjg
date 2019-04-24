@@ -267,6 +267,7 @@ server.post('/search',(req,res)=>{
 //获取展览信息  发现页
 server.get('/exhnews',(req,res)=>{
  
+  
   var sql='select * from exhnews'
   pool.query(sql,(err,result)=>{
     if(err){
