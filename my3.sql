@@ -5,14 +5,14 @@
 
 create table index_lunbo(
   lid int primary key auto_increment,
-	img_url varchar(32)
+  img_url varchar(32)
 );
 
 INSERT INTO index_lunbo VALUES
-(null,'lunbo1.jpg'),
-(null,'lunbo2.jpg'),
-(null,'lunbo3.jpg'),
-(null,'lunbo4.jpg');
+(null,'index/lunbo1.jpg'),
+(null,'index/lunbo2.jpg'),
+(null,'index/lunbo3.jpg'),
+(null,'index/lunbo4.jpg');
 
 /**首页二楼**/
 create table index_twofl(
@@ -24,10 +24,10 @@ create table index_twofl(
 );
 
 INSERT INTO index_twofl VALUES
-(null,'twofl1.jpg','/detail?did=1','层像态空间 .  Movements Withinovo','纸本水墨质'),
-(null,'twofl2.jpg','/detail?did=2','梦笔生花 — 全国中国画作品展','规格：144×367cm'),
-(null,'twofl3.jpg','/detail?did=3','追寻与本色 — 古棕艺术作品展','创作年代：2006'),
-(null,'twofl4.jpg','/detail?did=4','灵山秀水-——刘云中国画作品展','Wool scarf');
+(null,'index/twofl1.jpg','/detail?did=1','层像态空间 .  Movements Withinovo','纸本水墨质'),
+(null,'index/twofl2.jpg','/detail?did=2','梦笔生花 — 全国中国画作品展','规格：144×367cm'),
+(null,'index/twofl3.jpg','/detail?did=3','追寻与本色 — 古棕艺术作品展','创作年代：2006'),
+(null,'index/twofl4.jpg','/detail?did=4','灵山秀水-——刘云中国画作品展','Wool scarf');
 
 /**首页三楼**/
 create table index_threefl(
@@ -37,10 +37,10 @@ create table index_threefl(
 	subtit varchar(32)  #副标题
 );
 INSERT INTO index_threefl VALUES
-(null,'three1.png','中国古代青铜艺术精品','Architecture'),
-(null,'three1.png','抽象艺术石刻佛像精品','艺术家展'),
-(null,'three1.png','圆明园兽首铜像','艺术研讨会'),
-(null,'three1.png','隋意扬古韵遗风——古琴文化浅析','艺术研讨会');
+(null,'index/three1.png','中国古代青铜艺术精品','Architecture'),
+(null,'index/three1.png','抽象艺术石刻佛像精品','艺术家展'),
+(null,'index/three1.png','圆明园兽首铜像','艺术研讨会'),
+(null,'index/three1.png','隋意扬古韵遗风——古琴文化浅析','艺术研讨会');
 
 /**首页四楼**/
 create table index_fourfl(
