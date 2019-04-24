@@ -14,14 +14,14 @@ var pool = mysql.createPool({
   port     : process.env.MYSQL_PORT,
   user     : process.env.ACCESSKEY,
   password : process.env.SECRETKEY,
-  database : 'app_' + process.env.APPNAME
+  database : 'app_' + process.env.APPNAM
 });
 //3:创建express对象
 var server = express();
 //3.1 配置允许访问列 脚手架8080
 server.use(cors({
   origin:["http://127.0.0.1:8080",
-  "http://localhost:8080","http://127.0.0.1:8081/#/"],
+  "http://localhost:8080","http://127.0.0.1:8081/"],
   credentials:true
 }));
 //3.11:加载模块 express-session
