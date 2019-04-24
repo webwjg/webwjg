@@ -14,7 +14,7 @@ var pool = mysql.createPool({
   port     : process.env.MYSQL_PORT,
   user     : process.env.ACCESSKEY,
   password : process.env.SECRETKEY,
-  database : 'app_' + process.env.APPNAM
+  database : 'app_' + process.env.APPNAME
 });
 //3:创建express对象
 var server = express();
