@@ -19,11 +19,11 @@ var pool = mysql.createPool({
 //3:创建express对象
 var server = express();
 //3.1 配置允许访问列 脚手架8080
-server.use(cors({
-  origin:["http://127.0.0.1:8080",
-  "http://localhost:8080","http://127.0.0.1:8081/"],
-  credentials:true
-}));
+// server.use(cors({
+//   origin:["http://127.0.0.1:8080",
+//   "http://localhost:8080","http://127.0.0.1:8081/"],
+//   credentials:true
+// }));
 //3.11:加载模块 express-session
 //并且对其配置  顺序问题
 const session = require("express-session");
