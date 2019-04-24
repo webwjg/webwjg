@@ -55,7 +55,12 @@ server.listen(5050);
 server.get('/indexlunbo',(req,res)=>{
      var sql='select * from index_lunbo';
      pool.query(sql,(err,result)=>{
-       if(err)throw err;
+      //  if(err)throw err;
+      if(err){
+        console.log(err);
+        res.send({code:-1,msg:err.message});
+        return;
+        }
       //  console.log(result);
        res.send(result);
      })
@@ -65,7 +70,12 @@ server.get('/indexlunbo',(req,res)=>{
 server.get('/indextwofl',(req,res)=>{
   var sql='select * from index_twofl';
   pool.query(sql,(err,result)=>{
-    if(err)throw err;
+    // if(err)throw err;
+    if(err){
+      console.log(err);
+      res.send({code:-1,msg:err.message});
+      return;
+      }
     // console.log(result);
     res.send(result);
   })
@@ -74,7 +84,12 @@ server.get('/indextwofl',(req,res)=>{
 server.get('/indexthreefl',(req,res)=>{
   var sql='select * from index_threefl';
   pool.query(sql,(err,result)=>{
-    if(err)throw err;
+    // if(err)throw err;
+    if(err){
+      console.log(err);
+      res.send({code:-1,msg:err.message});
+      return;
+      }
     //  console.log(result);
     res.send(result);
   })
