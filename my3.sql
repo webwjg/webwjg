@@ -221,7 +221,7 @@ INSERT INTO artlist VALUES
 'https://baike.baidu.com/item/%E5%AE%8B%E6%AD%A5%E4%BA%91/3170597?fr=aladdin');
 
 /**展览信息**/
-create table exhNews(
+create table exhnews(
 	eid int primary key auto_increment,
 	title varchar(24),
 	btime varchar(24),
@@ -229,7 +229,7 @@ create table exhNews(
 	location varchar(48),
 	exhlist varchar(260)
 );
-INSERT INTO exhNews VALUES
+INSERT INTO exhnews VALUES
 (null,'油画展','2019-04-12','上午8:00-下午16:00','天宇展览馆七号展厅',
 '《破损石膏像》 《夏之晨》《桃圣》 《嘉陵摆渡》《碧浪涌南天》 《山泉水清》'),
 (null,'油画展','2019-04-12','上午8:00-下午16:00','天宇展览馆七号展厅',

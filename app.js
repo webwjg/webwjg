@@ -57,11 +57,11 @@ server.get('/indexlunbo',(req,res)=>{
      pool.query(sql,(err,result)=>{
       //  if(err)throw err;
       if(err){
-        console.log(err);
+        //console.log(err);
         res.send({code:-1,msg:err.message});
         return;
         }
-      //  console.log(result);
+      //  //console.log(result);
        res.send(result);
      })
 })
@@ -72,11 +72,11 @@ server.get('/indextwofl',(req,res)=>{
   pool.query(sql,(err,result)=>{
     // if(err)throw err;
     if(err){
-      console.log(err);
+      //console.log(err);
       res.send({code:-1,msg:err.message});
       return;
       }
-    // console.log(result);
+    // //console.log(result);
     res.send(result);
   })
 })
@@ -86,11 +86,11 @@ server.get('/indexthreefl',(req,res)=>{
   pool.query(sql,(err,result)=>{
     // if(err)throw err;
     if(err){
-      console.log(err);
+      //console.log(err);
       res.send({code:-1,msg:err.message});
       return;
       }
-    //  console.log(result);
+    //  //console.log(result);
     res.send(result);
   })
 })
@@ -99,7 +99,7 @@ server.get('/indexfourfl',(req,res)=>{
   var sql='select * from index_fourfl';
   pool.query(sql,(err,result)=>{
     if(err)throw err;
-    // console.log(result);
+    // //console.log(result);
     res.send(result);
   })
 })
@@ -131,12 +131,12 @@ server.get('/listpage2',(req,res)=>{
 })
 //详情页数据
 server.get('/detail',(req,res)=>{
- // console.log(req.query.did);
+ // //console.log(req.query.did);
   var did=req.query.did;
   if(did!==1){
     did=1
   }
-  //console.log(did);
+  ////console.log(did);
       var sql='select * from detail where did=?'
       pool.query(sql,[did],(err,result)=>{
            if(err) throw err;
@@ -155,7 +155,7 @@ server.get('/comm',(req,res)=>{
 
 //详情页添加关注
 server.post('/addconcern',(req,res)=>{
-  //console.log(req.body.author);
+  ////console.log(req.body.author);
   var  chinesename=req.body.chinesename;
   var  material=req.body.material;
   var  author=req.body. author;
@@ -167,7 +167,7 @@ server.post('/addconcern',(req,res)=>{
  
   var sql='insert into add_concern values(null,?,?,?,?,?,?,?,?)';
   pool.query(sql,[chinesename,material,author,type,size,creattime,positnews,exhibition],(err,result)=>{
-     //console.log(result);
+     ////console.log(result);
      if(result.affectedRows>0){
        res.send({code:1})
      }else{
@@ -184,7 +184,7 @@ server.get('/follow',(req,res)=>{
     var sql='select * from add_concern';
     pool.query(sql,(err,result)=>{
       if(err)throw err;
-      //console.log(result);
+      ////console.log(result);
       res.send({code:1,data:result})
 
     })
@@ -194,11 +194,11 @@ server.get('/follow',(req,res)=>{
 server.get('/defollow',(req,res)=>{
     
     var cid=req.query.cid;
-   // console.log(cid);
+   // //console.log(cid);
     var sql='delete from add_concern where cid=?'
     pool.query(sql,[cid],(err,result)=>{
       if(err)throw err;
-      //console.log(result.length);
+      ////console.log(result.length);
       if(result.affectedRows>0){
         res.send({code:1})
       }
@@ -209,14 +209,14 @@ server.get('/defollow',(req,res)=>{
 
 //接收评论数据
 server.post('/subcomm',(req,res)=>{
- // console.log(req.body.img_url);
+ // //console.log(req.body.img_url);
    var img_url=req.body.img_url;
    var nickname=req.body.nickname;
    var commcont=req.body.commcont;
    var sql='insert into commdata values(null,?,?,?)';
    pool.query(sql,[img_url,nickname,commcont],(err,result)=>{
           if(err)throw err;
-         // console.log(result.affectedRows);
+         // //console.log(result.affectedRows);
           var mid=result. insertId;
           if(result.affectedRows>0){
              res.send({code:1,data:mid});
@@ -237,7 +237,7 @@ server.get('/person',(req,res)=>{
   var sql='select * from artlist limit ?,?';
   var offset=(pno-1)*pageSize;  //相应页的第一条数据的id
   pool.query(sql,[offset,pageSize],(err,result)=>{
-   // console.log(result);
+   // //console.log(result);
     if(err)throw err;
     if(result.length==0){
       res.send({code:0});
@@ -249,11 +249,11 @@ server.get('/person',(req,res)=>{
 })
 //人物搜索功能
 server.post('/search',(req,res)=>{
-   // console.log(req.body.aname);
+   // //console.log(req.body.aname);
     var aname=req.body.aname
     var sql=`select * from artlist where aname like '%${aname}%' `
     pool.query(sql,(err,result)=>{
-      //console.log(result.length);
+      ////console.log(result.length);
       if(err)throw err;
       if(result.length==0){
         res.send({code:0})
@@ -269,7 +269,12 @@ server.get('/exhnews',(req,res)=>{
  
   var sql='select * from exhnews'
   pool.query(sql,(err,result)=>{
-    //console.log(result);
+    if(err){
+      console.log(err);
+      res.send({code:-1,msg:err.message});
+      return;
+    }
+    console.log(result);
     res.send({code:1,data:result});
   })
 })
@@ -278,17 +283,17 @@ server.get('/research',(req,res)=>{
  
   var sql='select * from research'
   pool.query(sql,(err,result)=>{
-    //console.log(result);
+    ////console.log(result);
     res.send({code:1,data:result});
   })
 })
 //学术研究详情页
 server.get('/study',(req,res)=>{
   var tid=req.query.tid;
-  //console.log(tid);
+  ////console.log(tid);
   var sql='select * from study where tid=?'
   pool.query(sql,[tid],(err,result)=>{
-    //console.log(result);
+    ////console.log(result);
     res.send({code:1,data:result});
   })
 })
@@ -298,17 +303,17 @@ server.post('/reg',(req,res)=>{
   var upwd=req.body.upwd;
   var zh=req.body.zh;
   var uemail=req.uemail;
-  //console.log(zh);
+  ////console.log(zh);
   //验证是否已有账号
   var sql='select * from usernews where zh=?';
   pool.query(sql,[zh],(err,result)=>{
-      //console.log(result.length);
+      ////console.log(result.length);
       if(result.length>0){
         res.send({code:0});
       }else{
         var sql='insert into usernews (zh,upwd,uemail) values(?,?,?)';
         pool.query(sql,[zh,upwd,uemail],(err,result)=>{
-     // console.log(result);
+     // //console.log(result);
             if(result.affectedRows>0){
                 res.send({code:1});
             }
@@ -328,7 +333,7 @@ server.post('/login',(req,res)=>{
 
   var sql='select * from usernews where zh=? and upwd=?';
   pool.query(sql,[zh,upwd],(err,result)=>{
-     // console.log(result.length);
+     // //console.log(result.length);
       if(result.length>0){
         res.send({code:1,data:result});
       }else{
@@ -339,12 +344,12 @@ server.post('/login',(req,res)=>{
 
 //修改密码
 server.post('/updatep',(req,res)=>{
-  //console.log(req.body.xpwd);
+  ////console.log(req.body.xpwd);
   var zh=req.body.zh;
   var upwd=req.body.xpwd;
   var sql='update usernews set upwd=? where zh=?';
   pool.query(sql,[upwd,zh],(err,result)=>{
-    //console.log(result);
+    ////console.log(result);
     if(err)throw err;
     if(result.affectedRows>0){
       res.send({code:1});
@@ -358,12 +363,12 @@ server.post('/updatep',(req,res)=>{
 
 //首页搜索功能
 server.post('/insearch',(req,res)=>{
-     // console.log(req.body.title);
+     // //console.log(req.body.title);
       var dname=req.body.title;
       var sql=`select * from detail where concat(dname,author) like '%${dname}%'`;
       pool.query(sql,(err,result)=>{
         if(err)throw err;
-         //console.log(result);
+         ////console.log(result);
         if(result.length==0){
           res.send({code:0});
         }else{
